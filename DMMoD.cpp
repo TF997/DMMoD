@@ -10,7 +10,6 @@ void display ();
 int main()
 {
   srand(time(NULL));
-  //RaceGen();
   mainMenu();
   Gen();
   display();
