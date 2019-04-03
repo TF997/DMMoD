@@ -14,3 +14,14 @@ Race
 Level (user selected) 
 
 Stats
+
+## How To Use:
+### **Linux:**
+
+Compile this git repo using your favourite c++ compiler eg: 
+
+g++ DMMoD.cpp Gen.cpp mainMenu.cpp Options.cpp -o DMMoD
+
+### **Windows:**
+
+Download the *Windows* folder only and run DMMoD.exe
