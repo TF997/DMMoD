@@ -4,45 +4,25 @@ using namespace std;
 #include <ctime>
 #include "mainMenu.h"
 #include "Gen.h"
-string RaceGen();
+#include "Options.h"
 int mainMenu();
-void display ();
+void display();
+int choiceOne();
+int choiceTwo();
 int main()
 {
   srand(time(NULL));
-  bool selectLevel;
+
   int choice = mainMenu();
-  int loopCount = 0;
-  int setLevel = 0;
+
   if (choice == 1)
   {
-  selectLevel = true;
-  cout << "How many NPC would you like to create?: ";
-  cin >> loopCount;
-  for(int i = 1; i <= loopCount; i++)
-  {
-  Gen(selectLevel,setLevel);
-  display();
-  cout << "" << endl;
-  cout << "" << endl;
-  }
+    choiceOne();
   }
 
   if (choice == 2)
   {
-  selectLevel = false;
-  cout << "Level of NPCs: (Max 20) ";
-  cin >> setLevel;
-  cout << "" << endl;
-  cout << "How many NPC would you like to create?: ";
-  cin >> loopCount;
-  for(int i = 1; i <= loopCount; i++)
-  {
-  Gen(selectLevel,setLevel);
-  display();
-  cout << "" << endl;
-  cout << "" << endl;
-  }
+    choiceTwo();
   }
   return 0;
 }
