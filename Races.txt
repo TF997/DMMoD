@@ -1,0 +1,30 @@
+Dragonborn
+Dwarf
+Elf
+Gnome
+Half Elf
+Half Orc
+Halfling
+Human
+Tiefling
+Aarakocra
+Aasimar
+Bug Bear
+Firbolg
+Goblin
+Hobgoblin
+Kenku
+Kobold
+Lizardfolk
+Orc
+Tabaxi
+Triton
+Yuan-Ti Pureblood
+Gith
+Changeling
+Eladrin
+Genasi
+Goliath
+Minotaur (Krynn)
+Shifter
+Warforged (Eberron)
