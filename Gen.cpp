@@ -5,32 +5,45 @@
 #include "NPC.h"
 using namespace std;
 NPC WhiteRabbit;
-string RaceGen()
+vector<string> statNames = {"STR: ","Dex: ","CON: ","INT: ","WIS: ","CHA: "};
+
+string RaceGen(vector<string> RaceSelection)
 {
-  vector<string> RaceSelection;
+  int Num = (rand() % 30);
+  return RaceSelection[Num];
+}
+
+string NameGen(vector<string> NameSelection)
+{
+  int Num = (rand() % 50);
+  return NameSelection[Num];
+}
+
+vector<string> raceRead(vector<string> RaceSelection)
+{
+ RaceSelection.reserve(60);
   string line;
   ifstream raceList("Races.txt");
   while (getline(raceList, line))
    {
        RaceSelection.push_back(line);
    }
-  int Num = (rand() % 30);
-  return RaceSelection[Num];
+   return RaceSelection;
 }
 
-string NameGen()
+vector<string> nameRead(vector<string> NameSelection)
 {
+  NameSelection.reserve(60);
   //name list from https://koboldpress.com/the-random-dm-npc-names/
-  vector<string> NameSelection;
   string line;
   ifstream nameList("Names.txt");
   while (getline(nameList, line))
    {
        NameSelection.push_back(line);
    }
-  int Num = (rand() % 50);
-  return NameSelection[Num];
+   return NameSelection;
 }
+
 
 int StatGen()
 {
@@ -62,9 +75,9 @@ for(int i = 0; i <=3; i++)
 //cout << "Total is: " << sum << endl;
 return sum;
 }
+
 void display()
 {
-  vector<string> statNames = {"STR: ","Dex: ","CON: ","INT: ","WIS: ","CHA: "};
   cout << "Name: " << WhiteRabbit.Name << endl;
   cout << "Race: " << WhiteRabbit.Race << endl;
   cout << "Level: " << WhiteRabbit.Level << endl;
@@ -75,14 +88,31 @@ void display()
     cout << WhiteRabbit.Stats[i] << endl;
 
   }
-
+  cout << "" << endl;
+  cout << "" << endl;
 }
 
-int Gen(bool selectLevel, int setLevel)
+
+int writeTofile(int CharNum)
 {
-WhiteRabbit.Stats = {0,0,0,0,0,0};
-WhiteRabbit.Name = NameGen();
-WhiteRabbit.Race = RaceGen();
+  cout << CharNum << endl;
+  ofstream CharSheet;
+  CharSheet.open(to_string(CharNum)+ ". " + WhiteRabbit.Name + ".txt");
+  CharSheet <<"Name: " << WhiteRabbit.Name << "\n";
+  CharSheet <<"Race: " <<  WhiteRabbit.Race << "\n";
+  CharSheet <<"Level: " <<  WhiteRabbit.Level << "\n";
+  for(int i = 0; i<=5; i++)
+  {
+    CharSheet << statNames[i];
+    CharSheet << WhiteRabbit.Stats[i] << "\n";
+  }
+  return 0;
+}
+
+int Gen(bool selectLevel, int setLevel,vector<string> NameSelection,vector<string> RaceSelection, int CharNum)
+{
+WhiteRabbit.Name = NameGen(NameSelection);
+WhiteRabbit.Race = RaceGen(RaceSelection);
 if(selectLevel == true)
 {
 cout << "Level of NPC: (Max 20) "<< endl;
@@ -101,6 +131,7 @@ for(int i = 0; i <=5; i++)
 {
   WhiteRabbit.Stats[i] = StatGen();
 }
-
+display();
+writeTofile(CharNum);
 return 0;
 }

@@ -9,6 +9,6 @@ public:
 string Name;
 string Race;
 int Level;
-vector<int> Stats;
+vector<int> Stats = {0,0,0,0,0,0};
 
 };
