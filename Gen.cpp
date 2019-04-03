@@ -66,8 +66,8 @@ void display()
 {
   vector<string> statNames = {"STR: ","Dex: ","CON: ","INT: ","WIS: ","CHA: "};
   cout << "Name: " << WhiteRabbit.Name << endl;
-  cout << "Race: " <<WhiteRabbit.Race << endl;
-  cout << "Level: " <<WhiteRabbit.Level << endl;
+  cout << "Race: " << WhiteRabbit.Race << endl;
+  cout << "Level: " << WhiteRabbit.Level << endl;
 
   for(int i = 0; i<=5; i++)
   {
@@ -78,13 +78,20 @@ void display()
 
 }
 
-int Gen()
+int Gen(bool selectLevel, int setLevel)
 {
 WhiteRabbit.Stats = {0,0,0,0,0,0};
 WhiteRabbit.Name = NameGen();
 WhiteRabbit.Race = RaceGen();
+if(selectLevel == true)
+{
 cout << "Level of NPC: (Max 20) "<< endl;
 cin >> WhiteRabbit.Level;
+}
+else
+{
+  WhiteRabbit.Level = setLevel;
+}
 if (WhiteRabbit.Level > 20)
 {
   WhiteRabbit.Level = 20;

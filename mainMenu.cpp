@@ -3,7 +3,7 @@
 using namespace std;
 int mainMenu()
 {
-char choice;
+int choice;
 string titleCard = R"(
   ______   _______    _______  _______  ______
  (  __  \ (       )  (       )(  ___  )(  __  \
@@ -16,15 +16,9 @@ string titleCard = R"(
 
  )";
 cout << titleCard << endl;
-cout << "[1] Generate Random NPC" << endl;
+cout << "[1] Generate Random NPC(s) {all with the same level}" << endl;
+cout << "[2] Generate Random NPC(s) {all with different levels}" << endl;
 cout << "Input: ";
 cin >> choice;
-if(choice == '1')
-{
-return 1;
-}
-
-
-return 0;
-
+return choice;
 }

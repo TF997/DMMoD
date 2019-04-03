@@ -1,6 +1,6 @@
 #ifndef cG_H
 #define cG_H
 
-int Gen();
+int Gen(bool selectLevel, int setLevel);
 
 #endif
