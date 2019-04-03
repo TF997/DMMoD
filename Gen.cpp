@@ -14,7 +14,7 @@ string RaceGen()
    {
        RaceSelection.push_back(line);
    }
-  int Num = (rand() % 31);
+  int Num = (rand() % 30);
   return RaceSelection[Num];
 }
 
@@ -28,7 +28,7 @@ string NameGen()
    {
        NameSelection.push_back(line);
    }
-  int Num = (rand() % 51);
+  int Num = (rand() % 50);
   return NameSelection[Num];
 }
 
@@ -39,7 +39,7 @@ Roll = {0,0,0,0};
 //cout << "Rolls: ";
 for(int i = 0; i <=3; i++)
 {
-  Roll[i] = (rand() % 7) + 1;
+  Roll[i] = (rand() % 6 + 1);
   //cout << Roll[i] << " ";
 }
 int LowDrop = Roll[0];
