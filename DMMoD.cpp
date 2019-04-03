@@ -10,8 +10,13 @@ void display ();
 int main()
 {
   srand(time(NULL));
-  mainMenu();
+  int choice = mainMenu();
+
+  if (choice == 1)
+  {
   Gen();
   display();
+  }
+
   return 0;
 }

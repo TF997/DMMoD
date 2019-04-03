@@ -21,7 +21,7 @@ cout << "Input: ";
 cin >> choice;
 if(choice == '1')
 {
-
+return 1;
 }
 
 
