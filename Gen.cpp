@@ -76,8 +76,9 @@ for(int i = 0; i <=3; i++)
 return sum;
 }
 
-void display()
+void display(int CharNum)
 {
+  cout << "(" << CharNum << ")" << endl;
   cout << "Name: " << WhiteRabbit.Name << endl;
   cout << "Race: " << WhiteRabbit.Race << endl;
   cout << "Level: " << WhiteRabbit.Level << endl;
@@ -134,6 +135,7 @@ if(selectLevel == 4)
   randNum = (rand() % hlbound) + llbound;
   WhiteRabbit.Level = randNum;
 }
+
 if (WhiteRabbit.Level > 20)
 {
   WhiteRabbit.Level = 20;
@@ -143,7 +145,7 @@ for(int i = 0; i <=5; i++)
 {
   WhiteRabbit.Stats[i] = StatGen();
 }
-display();
+display(CharNum);
 writeTofile(CharNum);
 return 0;
 }
