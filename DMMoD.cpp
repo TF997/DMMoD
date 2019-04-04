@@ -6,51 +6,48 @@ using namespace std;
 #include <string>
 #include "mainMenu.h"
 #include "Gen.h"
-#include "Options.h"
 #include "CharCreator.h"
+#include "OptionsC.h"
 int mainMenu();
 void display();
-int choiceOne(vector<string> NameSelection,vector<string> RaceSelection,int CharNum );
-int choiceTwo(vector<string> NameSelection,vector<string> RaceSelection,int CharNum );
-int choiceThree(vector<string> NameSelection,vector<string> RaceSelection,int CharNum );
-int choiceFour(vector<string> NameSelection,vector<string> RaceSelection,int CharNum);
 vector<string> nameRead(vector<string> NameSelection);
 vector<string> raceRead(vector<string> RaceSelection);
+int Gen(vector<string> NameSelection, vector<string> RaceSelection, Options& MyOptions);
 int CharCreator(int CharNum);
 int CharNum = 0;
+Options MyOptions;
 int main()
 {
   vector<string> NameSelection;
   vector<string> RaceSelection;
   NameSelection = nameRead(NameSelection);
   RaceSelection = raceRead(RaceSelection);
-  srand(time(NULL));
   int choice = 0;
-  while(choice < 6)
-  {
+  srand(time(NULL));
+  
+//force single first creation to reduce crashes?
+  choice = -1;
+  MyOptions.configureBasedOnChoice(choice);
+  Gen(NameSelection,RaceSelection,MyOptions,CharNum);
+
   choice = mainMenu();
-  if (choice == 1)
+  while (choice < 6)
   {
-    choiceOne(NameSelection,RaceSelection,CharNum);
+  MyOptions.configureBasedOnChoice(choice);
+  if(choice < 5)
+  {
+  for(int i = 0; i < MyOptions.loopCount; i++)
+  {
+    CharNum += 1;
+    Gen(NameSelection,RaceSelection,MyOptions,CharNum);
   }
+}
+  else if (choice == 5)
+  {
+      CharCreator(CharNum);
+  }
+  choice = mainMenu();
+}
 
-  if (choice == 2)
-  {
-    choiceTwo(NameSelection,RaceSelection,CharNum);
-  }
-
-  if (choice == 3)
-  {
-    choiceThree(NameSelection,RaceSelection,CharNum);
-  }
-  if (choice == 4)
-  {
-    choiceFour(NameSelection,RaceSelection,CharNum);
-  }
-  if (choice == 5)
-  {
-    CharCreator(CharNum);
-  }
- }
   return 0;
 }

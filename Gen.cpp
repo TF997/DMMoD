@@ -3,8 +3,10 @@
 #include <vector>
 #include <fstream>
 #include "NPC.h"
+#include "OptionsC.h"
 using namespace std;
 NPC WhiteRabbit;
+int randNum;
 vector<string> statNames = {"STR: ","Dex: ","CON: ","INT: ","WIS: ","CHA: "};
 
 string RaceGen(vector<string> RaceSelection)
@@ -109,30 +111,30 @@ int writeTofile(int CharNum)
   return 0;
 }
 
-int Gen(int selectLevel, int setLevel,vector<string> NameSelection, vector<string> RaceSelection, int CharNum, int llbound, int hlbound)
+int Gen(vector<string> NameSelection, vector<string> RaceSelection, Options& MyOptions, int CharNum)
 {
-int randNum = 0;
+randNum = 0;
 WhiteRabbit.Name = NameGen(NameSelection);
 WhiteRabbit.Race = RaceGen(RaceSelection);
-if(selectLevel == 2)
+if(MyOptions.selectLevel == 2)
 {
 cout << "Level of NPC: (Max 20) "<< endl;
 cin >> WhiteRabbit.Level;
 }
-if(selectLevel == 1)
+if(MyOptions.selectLevel == 1)
 {
-  WhiteRabbit.Level = setLevel;
+  WhiteRabbit.Level = MyOptions.setLevel;
 }
-if(selectLevel == 3)
+if(MyOptions.selectLevel == 3)
 {
   randNum = (rand() % 20 + 1);
   WhiteRabbit.Level = randNum;
 }
-if(selectLevel == 4)
+if(MyOptions.selectLevel == 4)
 {
-  hlbound = hlbound - llbound;
-  hlbound += 1;
-  randNum = (rand() % hlbound) + llbound;
+  MyOptions.hlbound =   MyOptions.hlbound - MyOptions.llbound;
+  MyOptions.hlbound += 1;
+  randNum = (rand() %   MyOptions.hlbound) + MyOptions.llbound;
   WhiteRabbit.Level = randNum;
 }
 
@@ -145,7 +147,10 @@ for(int i = 0; i <=5; i++)
 {
   WhiteRabbit.Stats[i] = StatGen();
 }
+if(MyOptions.selectLevel > -1)
+{
 display(CharNum);
 writeTofile(CharNum);
+}
 return 0;
 }

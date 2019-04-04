@@ -2,6 +2,7 @@
 #define cG_H
 #include <vector>
 #include <string>
+#include "OptionsC.h"
 using namespace std;
-int Gen(int selectLevel, int setLevel,vector<string> NameSelection,vector<string> RaceSelection, int CharNum, int llbound, int hlbound);
+int Gen(vector<string> NameSelection, vector<string> RaceSelection, Options& MyOptions,int CharNum);
 #endif
