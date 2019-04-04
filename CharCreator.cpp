@@ -44,8 +44,12 @@ void displayCC(int CharNum)
 
 int CharCreator(int CharNum)
 {
-  cout << "Character Name: ";
+  string LastName;
+  cout << "Character First Name: ";
   cin >> CustomChar.Name;
+  cout << "Character Last Name: ";
+  cin >> LastName;
+  CustomChar.Name = CustomChar.Name + " " +LastName;
   cout << "" << endl;
   cout << "Character Race: ";
   cin >> CustomChar.Race;
