@@ -132,7 +132,6 @@ if(selectLevel == 4)
   hlbound = hlbound - llbound;
   hlbound += 1;
   randNum = (rand() % hlbound) + llbound;
-  cout << randNum << endl;
   WhiteRabbit.Level = randNum;
 }
 if (WhiteRabbit.Level > 20)
