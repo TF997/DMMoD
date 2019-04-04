@@ -1,7 +1,7 @@
 # DMMoD
 DM's Helper for DnD 5e
 
-## Version 0.1
+## Version 0.3
 
 Currently enables you to randomly generate NPC's for your games and writes their stats to a txt file.
 
