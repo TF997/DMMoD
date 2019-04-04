@@ -24,7 +24,7 @@ g++ DMMoD.cpp Gen.cpp mainMenu.cpp Options.cpp -o DMMoD
 
 ### **Windows:**
 
-Download the *Windows* folder only and run DMMoD.exe
+Download the zip and extract the *Windows* and run DMMoD.exe
 
 ## Showcase/Tutorial:
 ### Once the windows file has downloaded open run DMMoD.exe:
