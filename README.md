@@ -32,12 +32,12 @@ g++ DMMoD.cpp mainMenu.cpp Gen.cpp CharCreator.cpp -o DMMoD.exe -static-libgcc -
 ![alt text](https://i.imgur.com/VGFzlbI.png "1")
 ### It will then show this interface:
 ![alt text](https://i.imgur.com/TYeAaiC.png"2")
-### Generate a single NPC first: (The program may crash if you try more than 1 on the first run)
+### Generating a single NPC: 
 ![alt text](https://i.imgur.com/G2yIc63.png"3")
 ### The generated NPC will be shown in the console and a txt file will appear with the name of that NPC and all the stats will be inside:
 ![alt text](https://i.imgur.com/8tlWRtU.png"4")
 ![alt text](https://i.imgur.com/Fg2PGQ6.png?1"5")
 ![alt text](https://i.imgur.com/NTfZXdY.png"6")
-### Then it will show the Main Menu again and this time you can try and break it:
+### Then it will show the Main Menu again and this time you can try and break it if you like:
 ![alt text](https://i.imgur.com/EtLMZAo.png"7")
 ![alt text](https://i.imgur.com/Sv1iRst.png"8")
