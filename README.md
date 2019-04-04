@@ -20,7 +20,7 @@ Stats
 
 Compile this git repo using your favourite c++ compiler eg: 
 
-g++ DMMoD.cpp Gen.cpp mainMenu.cpp Options.cpp -o DMMoD
+DMMoD.cpp Options.cpp mainMenu.cpp Gen.cpp -o DMMoD -static-libgcc -static-libstdc++
 
 ### **Windows:**
 
