@@ -109,18 +109,25 @@ int writeTofile(int CharNum)
   return 0;
 }
 
-int Gen(bool selectLevel, int setLevel,vector<string> NameSelection,vector<string> RaceSelection, int CharNum)
+int Gen(int selectLevel, int setLevel,vector<string> NameSelection,vector<string> RaceSelection, int CharNum)
 {
+  int randNum = 0;
 WhiteRabbit.Name = NameGen(NameSelection);
 WhiteRabbit.Race = RaceGen(RaceSelection);
-if(selectLevel == true)
+if(selectLevel == 2)
 {
 cout << "Level of NPC: (Max 20) "<< endl;
 cin >> WhiteRabbit.Level;
 }
-else
+if(selectLevel == 1)
 {
   WhiteRabbit.Level = setLevel;
+}
+if(selectLevel == 3)
+{
+  randNum = (rand() % 20 + 1);
+  cout << randNum << endl;
+  WhiteRabbit.Level = randNum;
 }
 if (WhiteRabbit.Level > 20)
 {
