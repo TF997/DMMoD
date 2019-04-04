@@ -95,7 +95,6 @@ void display()
 
 int writeTofile(int CharNum)
 {
-  cout << CharNum << endl;
   ofstream CharSheet;
   CharSheet.open(to_string(CharNum)+ ". " + WhiteRabbit.Name + ".txt");
   CharSheet <<"Name: " << WhiteRabbit.Name << "\n";
@@ -109,9 +108,9 @@ int writeTofile(int CharNum)
   return 0;
 }
 
-int Gen(int selectLevel, int setLevel,vector<string> NameSelection,vector<string> RaceSelection, int CharNum)
+int Gen(int selectLevel, int setLevel,vector<string> NameSelection, vector<string> RaceSelection, int CharNum, int llbound, int hlbound)
 {
-  int randNum = 0;
+int randNum = 0;
 WhiteRabbit.Name = NameGen(NameSelection);
 WhiteRabbit.Race = RaceGen(RaceSelection);
 if(selectLevel == 2)
@@ -126,6 +125,13 @@ if(selectLevel == 1)
 if(selectLevel == 3)
 {
   randNum = (rand() % 20 + 1);
+  WhiteRabbit.Level = randNum;
+}
+if(selectLevel == 4)
+{
+  hlbound = hlbound - llbound;
+  hlbound += 1;
+  randNum = (rand() % hlbound) + llbound;
   cout << randNum << endl;
   WhiteRabbit.Level = randNum;
 }
