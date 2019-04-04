@@ -20,12 +20,13 @@ Stats
 
 Compile this git repo using your favourite c++ compiler eg: 
 
-DMMoD.cpp Options.cpp mainMenu.cpp Gen.cpp -o DMMoD -static-libgcc -static-libstdc++
+g++ DMMoD.cpp Options.cpp mainMenu.cpp Gen.cpp -o DMMoD
 
 ### **Windows:**
 
 Download the zip and extract the *Windows* and run DMMoD.exe
-
+compile code if you want to do it from the core files:
+g++ DMMoD.cpp Options.cpp mainMenu.cpp Gen.cpp -o DMMoD.exe -static-libgcc -static-libstdc++
 ## Showcase/Tutorial:
 ### Once the windows file has downloaded open run DMMoD.exe:
 ![alt text](https://i.imgur.com/VGFzlbI.png "1")
