@@ -40,3 +40,10 @@ g++ DMMoD.cpp mainMenu.cpp Gen.cpp CharCreator.cpp -o DMMoD.exe -static-libgcc -
 ### Then it will show the Main Menu again and this time you can try and break it if you like:
 ![alt text](https://i.imgur.com/vxf0Mad.png"7")
 ![alt text](https://i.imgur.com/Sv1iRst.png"8")
+
+
+Contribution and ideas credit:
+
+From Reddit:
+
+u/sumguy720
