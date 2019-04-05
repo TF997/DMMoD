@@ -7,41 +7,8 @@ using namespace std;
 #include "Gen.h"
 NPC CustomChar;
 int StatGen();
-
-int writeTofileCC()
-{
-  vector<string> statNames = {"STR: ","Dex: ","CON: ","INT: ","WIS: ","CHA: "};
-  ofstream CharSheet;
-  CharSheet.open("Custom Character. " + CustomChar.Name + ".txt");
-  CharSheet <<"Name: " << CustomChar.Name << "\n";
-  CharSheet <<"Race: " <<  CustomChar.Race << "\n";
-  CharSheet <<"Level: " <<  CustomChar.Level << "\n";
-  for(int i = 0; i<=5; i++)
-  {
-    CharSheet << statNames[i];
-    CharSheet << CustomChar.Stats[i] << "\n";
-  }
-  return 0;
-}
-
-void displayCC(int CharNum)
-{
-  vector<string> statNames = {"STR: ","Dex: ","CON: ","INT: ","WIS: ","CHA: "};
-  cout << "(" << CharNum << ")" << endl;
-  cout << "Name: " << CustomChar.Name << endl;
-  cout << "Race: " << CustomChar.Race << endl;
-  cout << "Level: " << CustomChar.Level << endl;
-
-  for(int i = 0; i<=5; i++)
-  {
-    cout<< statNames[i];
-    cout << CustomChar.Stats[i] << endl;
-
-  }
-  cout << "" << endl;
-  cout << "" << endl;
-}
-
+int writeTofile(int CharNum, NPC& WhiteRabbit);
+void display(int CharNum, NPC& WhiteRabbit);
 int CharCreator(int CharNum)
 {
   string LastName;
@@ -66,7 +33,7 @@ int CharCreator(int CharNum)
   {
     CustomChar.Stats[i] = StatGen();
   }
-  displayCC(CharNum);
-  writeTofileCC();
+  display(-1, CustomChar);
+  writeTofile(-1, CustomChar);
 return 0;
 }

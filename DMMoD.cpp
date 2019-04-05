@@ -24,7 +24,7 @@ int main()
   RaceSelection = raceRead(RaceSelection);
   int choice = 0;
   srand(time(NULL));
-  
+
 //force single first creation to reduce crashes?
   choice = -1;
   MyOptions.configureBasedOnChoice(choice);

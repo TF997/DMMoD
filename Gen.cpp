@@ -5,7 +5,6 @@
 #include "NPC.h"
 #include "OptionsC.h"
 using namespace std;
-NPC WhiteRabbit;
 int randNum;
 vector<string> statNames = {"STR: ","Dex: ","CON: ","INT: ","WIS: ","CHA: "};
 
@@ -78,9 +77,16 @@ for(int i = 0; i <=3; i++)
 return sum;
 }
 
-void display(int CharNum)
+void display(int CharNum, NPC& WhiteRabbit)
 {
+  if(CharNum == -1)
+  {
+  cout << "(Custom Character:)" << endl;
+  }
+  else
+  {
   cout << "(" << CharNum << ")" << endl;
+  }
   cout << "Name: " << WhiteRabbit.Name << endl;
   cout << "Race: " << WhiteRabbit.Race << endl;
   cout << "Level: " << WhiteRabbit.Level << endl;
@@ -96,10 +102,17 @@ void display(int CharNum)
 }
 
 
-int writeTofile(int CharNum)
+int writeTofile(int CharNum, NPC& WhiteRabbit)
 {
   ofstream CharSheet;
-  CharSheet.open(to_string(CharNum)+ ". " + WhiteRabbit.Name + ".txt");
+  if(CharNum == -1)
+  {
+    CharSheet.open("CC. " + WhiteRabbit.Name + ".txt");
+  }
+  else
+  {
+    CharSheet.open(to_string(CharNum)+ ". " + WhiteRabbit.Name + ".txt");
+  }
   CharSheet <<"Name: " << WhiteRabbit.Name << "\n";
   CharSheet <<"Race: " <<  WhiteRabbit.Race << "\n";
   CharSheet <<"Level: " <<  WhiteRabbit.Level << "\n";
@@ -113,6 +126,7 @@ int writeTofile(int CharNum)
 
 int Gen(vector<string> NameSelection, vector<string> RaceSelection, Options& MyOptions, int CharNum)
 {
+NPC WhiteRabbit;
 randNum = 0;
 WhiteRabbit.Name = NameGen(NameSelection);
 WhiteRabbit.Race = RaceGen(RaceSelection);
@@ -149,8 +163,8 @@ for(int i = 0; i <=5; i++)
 }
 if(MyOptions.selectLevel > -1)
 {
-display(CharNum);
-writeTofile(CharNum);
+  display(CharNum, WhiteRabbit);
+  writeTofile(CharNum, WhiteRabbit);
 }
 return 0;
 }
