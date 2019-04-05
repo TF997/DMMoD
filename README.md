@@ -44,6 +44,6 @@ g++ DMMoD.cpp mainMenu.cpp Gen.cpp CharCreator.cpp -o DMMoD.exe -static-libgcc -
 
 Contribution and ideas credit:
 
-From Reddit:
+u/sumguy720 (Reddit)
 
-u/sumguy720
+CH
