@@ -49,6 +49,7 @@ vector<string> nameRead(vector<string> NameSelection)
 int StatGen()
 {
 vector<int> Roll;
+Roll.reserve(10);
 Roll = {0,0,0,0};
 //cout << "Rolls: ";
 for(int i = 0; i <=3; i++)
@@ -57,7 +58,6 @@ for(int i = 0; i <=3; i++)
   //cout << Roll[i] << " ";
 }
 int LowDrop = Roll[0];
-
 for(int i = 1; i <=3; i++)
 {
   if (Roll[i] < LowDrop)
@@ -72,7 +72,7 @@ for(int i = 0; i <=3; i++)
 {
   sum += Roll[i];
 }
-
+Roll.clear();
 //cout << "Total is: " << sum << endl;
 return sum;
 }
@@ -128,9 +128,12 @@ int Gen(vector<string> NameSelection, vector<string> RaceSelection, Options& MyO
 {
 NPC WhiteRabbit;
 randNum = 0;
-WhiteRabbit.Name = NameGen(NameSelection);
-WhiteRabbit.Race = RaceGen(RaceSelection);
-if(MyOptions.selectLevel == 2)
+//WhiteRabbit.Name = NameGen(NameSelection);
+//WhiteRabbit.Race = RaceGen(RaceSelection);
+WhiteRabbit.Name = "John";
+WhiteRabbit.Race = "Goblin";
+WhiteRabbit.Level = 20;
+/* if(MyOptions.selectLevel == 2)
 {
 cout << "Level of NPC: (Max 20) "<< endl;
 cin >> WhiteRabbit.Level;
@@ -156,11 +159,12 @@ if (WhiteRabbit.Level > 20)
 {
   WhiteRabbit.Level = 20;
 }
-
+*/
 for(int i = 0; i <=5; i++)
 {
   WhiteRabbit.Stats[i] = StatGen();
 }
+
 if(MyOptions.selectLevel > -1)
 {
   display(CharNum, WhiteRabbit);
