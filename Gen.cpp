@@ -16,7 +16,7 @@ string RaceGen(vector<string> RaceSelection)
 
 string NameGen(vector<string> NameSelection)
 {
-  int Num = (rand() % 50);
+  int Num = (rand() % 69);
   return NameSelection[Num];
 }
 
@@ -34,8 +34,7 @@ vector<string> raceRead(vector<string> RaceSelection)
 
 vector<string> nameRead(vector<string> NameSelection)
 {
-  NameSelection.reserve(60);
-  //name list from https://koboldpress.com/the-random-dm-npc-names/
+  NameSelection.reserve(150);
   string line;
   ifstream nameList("Names.txt");
   while (getline(nameList, line))
@@ -128,12 +127,9 @@ int Gen(vector<string> NameSelection, vector<string> RaceSelection, Options& MyO
 {
 NPC WhiteRabbit;
 randNum = 0;
-//WhiteRabbit.Name = NameGen(NameSelection);
-//WhiteRabbit.Race = RaceGen(RaceSelection);
-WhiteRabbit.Name = "John";
-WhiteRabbit.Race = "Goblin";
-WhiteRabbit.Level = 20;
-/* if(MyOptions.selectLevel == 2)
+WhiteRabbit.Name = NameGen(NameSelection);
+WhiteRabbit.Race = RaceGen(RaceSelection);
+if(MyOptions.selectLevel == 2)
 {
 cout << "Level of NPC: (Max 20) "<< endl;
 cin >> WhiteRabbit.Level;
@@ -159,7 +155,7 @@ if (WhiteRabbit.Level > 20)
 {
   WhiteRabbit.Level = 20;
 }
-*/
+
 for(int i = 0; i <=5; i++)
 {
   WhiteRabbit.Stats[i] = StatGen();
